@@ -14,5 +14,4 @@ services:
     ports:
       - 8888:8888
     restart: always
-    user: ${HOST_UID}:${HOST_GID}
-    working_dir: /home/${HOST_USER}
+    working_dir: /home/${HOST_USER}/work
