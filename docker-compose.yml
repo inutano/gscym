@@ -8,7 +8,10 @@ services:
       - ${DOCKER_BIN_PATH}:/usr/bin/docker
       - /var/run/docker.sock:/var/run/docker.sock
       - ./data:/home/jovyan/work/data
+    environment:
+      - NB_UID=${HOST_UID}
+      - NB_GID=${HOST_GID}
     ports:
       - 8888:8888
     restart: always
-    user: "${HOST_UID}:${HOST_GID}"
+    user: ${HOST_UID}:${HOST_GID}
