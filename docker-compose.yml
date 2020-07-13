@@ -1,0 +1,14 @@
+version: "3"
+services:
+  jupyter:
+    image: ${JUPYTER_DOCKER_IMAGE}
+    container_name: gscym-jupyter
+    volumes:
+      - /tmp:/tmp
+      - ${DOCKER_BIN_PATH}:/usr/bin/docker
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${PWD}:/home/jovyan/work
+    ports:
+      - 8888:8888
+    restart: always
+    working_dir: ${PWD}
